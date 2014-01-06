@@ -7,9 +7,18 @@
     ::
 
         /main.py
+        ...
+        /m1/__init__.py
         /m1/m1.py
+        ...
+        /m1/m1/__init__.py
         /m1/m1/m1.py
-        /m2/
+        ...
+        /m2/__init__.py
+        /m2/m2.py
+        ...
+        /m3/__init__.py
+        /m3/m3.py
 
 
 ** main.py **
