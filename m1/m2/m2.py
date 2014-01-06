@@ -1,0 +1,1 @@
+print 'location /m2/m2/m2.py'
