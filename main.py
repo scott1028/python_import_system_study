@@ -6,7 +6,7 @@ class test_import(unittest.TestCase):
 	def setUp(self):
 		print '\n[*] prepare for per test case...\n'
 
-	def try_test_import(self):
+	def test_try_import(self):
 		# 所有被引入的子目錄 import 的根據都是跟這這份文件的位置。
 		# 所以可以在 m3/m3.py 內用 import m1.m1 或 from m1.m1 import *
 
@@ -16,7 +16,15 @@ class test_import(unittest.TestCase):
 
 		# 巢狀的引入, 內部可再根據 App 執行檔的根目錄路徑做引入
 		# from ... import 的是 class 
-		from m3.m3 import *
+		#
+		# 盡量不要用 from ... import * 會出現警告。
+		# 使用 from ... import {what_name} 會可以正常使用(不用擔心程式文稿內的其他變數)
+		# from m3.m3 import *
+		#
+		from m3.m3 import m3
+		#
+		# 因為 m3/m3.py 內有 from m2.m2 import m2 , 所以可以這樣下。
+		from m3.m3 import m2
 
 		a=m2()
 
