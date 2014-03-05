@@ -42,5 +42,20 @@ class test_import(unittest.TestCase):
 
 		print m3_function
 
+	def test_import_m4(self):
+		# from . import XXX 這種語句不可以用在 __main__ 的腳本內，他只允許使用在其他模組的腳本。
+
+		# 相對路徑 import ( Py2 不建議使用, Py3 不可用 ), 如果要在 Py2 禁用即需要 from __future__ import absolute_import
+
+		# m4/m4_1/test.py
+		#	from __future__ import absolute_import  # 開啟這行將禁用 import bClass (這行將跳錯)
+		#	import bClass  # 在 Py2 預設是可以用的(相對路徑的 bClass, Py3 禁用, 改成 from . import bClass)
+		#	from . import bClass
+
+		from m4.m4_1.m4_2 import *
+		print myClass
+		print aClass.myClass
+		print bClass
+
 if __name__ == '__main__':
     unittest.main()
